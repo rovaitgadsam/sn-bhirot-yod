@@ -1721,7 +1721,7 @@
             <span>🕵️</span>
             <span>משימת חקר רשת | עכשיו אתם חוקרי מידע!</span>
           </div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">שלב 2: ניתוח פריט מהרשת שמוזן אוטומטית לתוצר ההגשה</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">שלב 2: איתור וניתוח כתבה או פוסט אמיתי מהרשת (חובה להזין להגשה)</div>
         </div>
 
         <!-- Clear Step-by-Step Instructions Banner -->
@@ -1733,16 +1733,16 @@
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 12px;">
             <div style="background: #fff; border: 1px solid #dbeafe; border-radius: 10px; padding: 12px;">
-              <div style="font-weight: 800; color: #1e40af; margin-bottom: 4px;">1️⃣ שלב א׳: בוחרים פריט</div>
+              <div style="font-weight: 800; color: #1e40af; margin-bottom: 4px;">1️⃣ שלב א׳: מוצאים פריט ברשת</div>
               <p style="font-size: 0.85rem; color: #334155;">
-                מצאו כתבה באתר חדשות או פוסט ציבורי ברשת (בנושא ציבורי או בחירות) עם טענה שאפשר לבדוק — או בחרו פריט מוכן ממאגר המקרים למטה.
+                חפשו עכשיו כתבה באתר חדשות או פוסט ציבורי ברשת חברתית (בנושא ציבורי או בחירות) שיש בו טענה עובדתית שאפשר לבדוק.
               </p>
             </div>
 
             <div style="background: #fff; border: 1px solid #dbeafe; border-radius: 10px; padding: 12px;">
               <div style="font-weight: 800; color: #1e40af; margin-bottom: 4px;">2️⃣ שלב ב׳: מתעדים ומצלמים</div>
               <p style="font-size: 0.85rem; color: #334155;">
-                הזינו את הכותרת/הטענה, שם המקור ותאריך הפרסום, העתיקו קישור והעלו צילום מסך של הפריט (אופציונלי).
+                הזינו בשדות למטה את הכותרת/הטענה שמצאתם, שם המקור ותאריך הפרסום, הדביקו קישור ישיר והעלו צילום מסך של הפריט.
               </p>
             </div>
 
@@ -1764,64 +1764,31 @@
           </div>
         </div>
 
-        <!-- Mode selector: Curated Case or Live URL -->
-        <div style="display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;">
-          <button class="btn btn-secondary active" id="btnModeCurated" onclick="setResearchMode('curated')">
-            📂 אפשרות א׳: בחירה מהירה ממאגר מקרים לבדיקה
-          </button>
-          <button class="btn btn-outline" id="btnModeLive" onclick="setResearchMode('live')">
-            🌐 אפשרות ב׳: הזנת כתבה / פוסט שמצאנו בעצמנו ברשת
-          </button>
-        </div>
-
-        <!-- Curated Case Picker -->
-        <div id="curatedSection" style="margin-bottom: 20px;">
-          <label class="form-label">לחצו על מקרה מהמאגר כדי לטעון את פרטיו אוטומטית (או הזינו פריט משלכם למטה):</label>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-            <div class="option-btn selected" id="caseCur1" onclick="pickCuratedCase(1, 'הודעת ווטסאפ: שינוי פתאומי במבנה בחינות הבגרות מחר', 'בהודעה אין קישור להודעת דובר משרד החינוך, אין תאריך או חתימה רשמית, וכל עוד אין אימות באתר המשרד - יש לסווג כאין מספיק מידע.', 'וואטסאפ (הודעת שרשרת ללא תאריך)', 'אין מספיק מידע', 'צילום מסך של הודעה מועברת פעמים רבות ללא קישור רשמי')">
-              <span class="opt-label">1. שמועת בחינות בגרות</span>
-              <span class="opt-desc">״משרד החינוך הודיע הרגע על ביטול הבגרות מחר...״</span>
-            </div>
-            <div class="option-btn" id="caseCur2" onclick="pickCuratedCase(2, 'מודעה: ״גלולת הפלא שמורידה 10 ק״ג בשבוע בלי ספורט״', 'אתר מכירות מסחרי ללא מחקר רפואי או אישור משרד הבריאות, המשתמש בתמונות גנריות מאתר תמונות.', 'רשת חברתית (פוסט ממומן ללא תאריך)', 'שגוי / הופרך', 'קישור לדף נחיתה מסחרי ללא מקור מדעי')">
-              <span class="opt-label">2. מודעת מוצר פלא</span>
-              <span class="opt-desc">״רופאים בהלם: הגלולה שחוסמת שומן ב-100%״</span>
-            </div>
-            <div class="option-btn" id="caseCur3" onclick="pickCuratedCase(3, 'סרטון קצוץ של איש ציבור מתוך ראיון באולפן', 'הסרטון נחתך במכוון שלוש שניות לפני משפט ההסבר, כך שהציטוט מוצא לחלוטין מהקשרו המקורי.', 'טיקטוק / רילס (קטע ערוך של 8 שניות)', 'מטעה', 'קישור לסרטון המקוצר מול הראיון המלא')">
-              <span class="opt-label">3. סרטון קצוץ מהקשר</span>
-              <span class="opt-desc">ציטוט מעורר סערה שנוצר על ידי חיתוך מגמתי</span>
-            </div>
-            <div class="option-btn" id="caseCur4" onclick="pickCuratedCase(4, 'תמונת הצפה דרמטית בטיילת נהריה הבוקר', 'בדיקת הפרטים בתמונה חושפת עיוותים בשלטי החנויות וברכבים המעידים כי התמונה נוצרה בבינה מלאכותית (AI).', 'פוסט ברשת X / טוויטר', 'שגוי / הופרך', 'צילום מסך של הפוסט הוויראלי ללא מקור חדשותי')">
-              <span class="opt-label">4. תמונת בינה מלאכותית (AI)</span>
-              <span class="opt-desc">״שיטפון ענק בטיילת נהריה הבוקר! תיעוד נדיר״</span>
-            </div>
-          </div>
-        </div>
-
         <!-- Step 1 & 2 Form: Item Details + Screenshot Upload -->
         <div class="card" style="background: #f8fafc; border-color: #cbd5e1; margin-bottom: 20px;">
           <h4 style="color: var(--primary-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-            <span>📝</span>
-            <span>תיעוד הפריט הנבדק (נכנס אוטומטית לדוח ההגשה ולתעודת התוצר):</span>
+            <span>🌐</span>
+            <span>הזנת הכתבה או הפוסט שמצאתם ברשת (שדות חובה להגשה):</span>
           </h4>
           
           <div class="form-group">
-            <label class="form-label">1. מהי הטענה או הכותרת של הפריט שבדקתם?</label>
-            <input type="text" id="researchTitle" class="form-control" placeholder="הקלידו את הכותרת או הטענה המרכזית בפוסט/בכתבה..." value="הודעת ווטסאפ: שינוי פתאומי במבנה בחינות הבגרות מחר" oninput="syncResearchToDeliverable()">
+            <label class="form-label">1. מהי הטענה או הכותרת של הכתבה / הפוסט שמצאתם ברשת? <span style="color: #dc2626;">*</span></label>
+            <input type="text" id="researchTitle" class="form-control" placeholder="הקלידו כאן את הכותרת או הטענה המרכזית מתוך הכתבה או הפוסט שמצאתם..." value="" required oninput="syncResearchToDeliverable()">
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
             <div class="form-group">
-              <label class="form-label">2. מי פרסם ומתי? (שם המקור, הפלטפורמה ותאריך הפרסום):</label>
-              <input type="text" id="researchSource" class="form-control" placeholder="למשל: עמוד פייסבוק / הודעת שרשרת / אתר חדשות + תאריך" value="וואטסאפ (הודעת שרשרת ללא תאריך)" oninput="syncResearchToDeliverable()">
+              <label class="form-label">2. מי פרסם ומתי? (שם המקור, הפלטפורמה ותאריך הפרסום): <span style="color: #dc2626;">*</span></label>
+              <input type="text" id="researchSource" class="form-control" placeholder="למשל: אתר חדשות / עמוד אינסטגרם או טיקטוק ציבורי + תאריך פרסום" value="" required oninput="syncResearchToDeliverable()">
             </div>
             <div class="form-group">
-              <label class="form-label">3. קישור לפרסום או תיאור התיעוד:</label>
-              <input type="text" id="researchLink" class="form-control" placeholder="הדביקו קישור (URL) או תארו את צילום המסך..." value="צילום מסך של הודעה מועברת פעמים רבות ללא קישור רשמי" oninput="syncResearchToDeliverable()">
+              <label class="form-label">3. קישור ישיר לפרסום (URL) או תיאור התיעוד: <span style="color: #dc2626;">*</span></label>
+              <input type="text" id="researchLink" class="form-control" placeholder="הדביקו כאן את הקישור לכתבה/לפוסט ברשת..." value="" required oninput="syncResearchToDeliverable()">
             </div>
           </div>
 
           <div class="form-group" style="margin-top: 4px; margin-bottom: 0;">
-            <label class="form-label">4. העלאת צילום מסך של הפריט (אופציונלי — יוצג אוטומטית בתעודת התוצר הכיתתית):</label>
+            <label class="form-label">4. העלאת צילום מסך של הכתבה / הפוסט שמצאתם (יוצג אוטומטית בתעודת התוצר הכיתתית):</label>
             <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
               <input type="file" id="researchScreenshotInput" accept="image/*" class="form-control" style="max-width: 340px; padding: 6px;" onchange="handleScreenshotUpload(this)">
               <button type="button" class="btn btn-outline btn-sm" id="clearScreenshotBtn" style="display: none;" onclick="clearScreenshot()">🗑️ הסר צילום מסך</button>
@@ -1836,7 +1803,7 @@
         <div style="margin-top: 20px;">
           <h3 style="color: var(--primary-dark); display: flex; align-items: center; gap: 8px; font-weight: 800;">
             <span>📋</span>
-            <span>צ׳ק־ליסט המעבדה | סמנו אילו מ-5 כלי הבדיקה הפעלתם על הפריט:</span>
+            <span>צ׳ק־ליסט המעבדה | סמנו אילו מ-5 כלי הבדיקה הפעלתם על הפריט שמצאתם:</span>
           </h3>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
             השתמשו בשאלות האלה כדי לבדוק את הפריט ולהסביר את ההחלטה שלכם (הכלים שתסמנו יופיעו בדוח ההגשה):
@@ -1889,7 +1856,7 @@
         <div class="vote-panel" style="margin-top: 20px;">
           <div class="vote-title">
             <span>⚖️</span>
-            <span>סיווג מנומק של הפריט (מתעדכן אוטומטית בתוצר הסופי):</span>
+            <span>סיווג מנומק של הפריט שמצאתם (חובה לבחור סיווג ולנמק): <span style="color: #dc2626;">*</span></span>
           </div>
 
           <div class="options-grid">
@@ -1897,7 +1864,7 @@
               <span class="opt-label">אמין ומבוסס</span>
               <span class="opt-desc">אומת במקור ראשוני, ראיות מוצקות והקשר מלא.</span>
             </div>
-            <div class="option-btn selected" id="optRes2" onclick="selectResearchVerdict('אין מספיק מידע')">
+            <div class="option-btn" id="optRes2" onclick="selectResearchVerdict('אין מספיק מידע')">
               <span class="opt-label">אין מספיק מידע</span>
               <span class="opt-desc">חסרים נתונים, תאריך או מקור מוסמך להכרעה.</span>
             </div>
@@ -1912,15 +1879,15 @@
           </div>
 
           <div class="form-group" style="margin-top: 14px;">
-            <label class="form-label">נימוק הכיתה לבדיקה (מי פרסם? אילו ראיות מוצגות? מה חסר? ולמה בחרתם בסיווג זה?):</label>
-            <textarea id="researchRationale" class="form-control" rows="3" placeholder="הסבירו את המסקנה שלכם על סמך הצ׳ק-ליסט (הטקסט כאן יועבר אוטומטית לתוצר ההגשה של הכיתה)..." oninput="syncResearchToDeliverable()">בהודעה אין קישור להודעת דובר משרד החינוך, אין תאריך או חתימה רשמית, וכל עוד אין אימות באתר המשרד - יש לסווג כאין מספיק מידע.</textarea>
+            <label class="form-label">נימוק הכיתה לבדיקה (מי פרסם? אילו ראיות מוצגות? מה חסר? ולמה בחרתם בסיווג זה?): <span style="color: #dc2626;">*</span></label>
+            <textarea id="researchRationale" class="form-control" rows="3" placeholder="הסבירו את המסקנה שלכם על סמך בדיקת הכתבה/הפוסט שמצאתם ברשת (הטקסט כאן יועבר אוטומטית לתוצר ההגשה של הכיתה)..." required oninput="syncResearchToDeliverable()"></textarea>
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
             <span style="font-size: 0.85rem; color: #0f766e; font-weight: 700;">
-              ✓ הנתונים נשמרו ומוכנים בתוך תוצר ההגשה הכיתתי
+              ✓ כל מה שאתם מקלידים מתעדכן אוטומטית בתוך תוצר ההגשה הכיתתי
             </span>
-            <button class="btn btn-primary" onclick="goToStep(3)">
+            <button class="btn btn-primary" onclick="proceedFromResearchToDeliverable()">
               המשך לתוצר הכיתתי ולשליחה ⬅️
             </button>
           </div>
@@ -1967,7 +1934,7 @@
           <!-- 2. Insight from the test (Auto-filled from Research Rationale, editable) -->
           <div class="form-group">
             <label class="form-label">💡 2. דוגמה ונימוק מהבדיקה שלנו (מוזן אוטומטית ממשימת החקר — ניתן לעריכה):</label>
-            <textarea id="classInsightInput" class="form-control" rows="2" oninput="AppState.manualInsightOverride = true; updateCertificatePreview()">בהודעה אין קישור להודעת דובר משרד החינוך, אין תאריך או חתימה רשמית, וכל עוד אין אימות באתר המשרד - יש לסווג כאין מספיק מידע.</textarea>
+            <textarea id="classInsightInput" class="form-control" rows="2" placeholder="מתמלא אוטומטית מתוך נימוק משימת החקר שהזנתם בשלב 2 (ניתן גם לערוך כאן)..." oninput="AppState.manualInsightOverride = true; updateCertificatePreview()"></textarea>
           </div>
 
           <!-- 3. Short Metric (Auto-calculated from votes, editable) -->
@@ -2012,16 +1979,16 @@
               </div>
 
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9rem; margin-bottom: 10px;">
-                <div><strong>הטענה / הכותרת שנבדקה:</strong> <span id="certResearchItem">הודעת ווטסאפ: שינוי פתאומי במבנה בחינות הבגרות מחר</span></div>
-                <div><strong>מקור ותאריך פרסום:</strong> <span id="certResearchSource">וואטסאפ (הודעת שרשרת ללא תאריך)</span></div>
-                <div><strong>קישור / תיעוד:</strong> <span id="certResearchLink">צילום מסך של הודעה מועברת פעמים רבות ללא קישור רשמי</span></div>
+                <div><strong>הטענה / הכותרת שנבדקה:</strong> <span id="certResearchItem">טרם הוזן פריט חקר</span></div>
+                <div><strong>מקור ותאריך פרסום:</strong> <span id="certResearchSource">טרם הוזן מקור</span></div>
+                <div><strong>קישור / תיעוד:</strong> <span id="certResearchLink">טרם הוזן קישור</span></div>
                 <div><strong>כלי צ׳ק-ליסט שנבדקו:</strong> <span id="certCheckedTools">מקור ראשוני, תאריך והקשר, ראיות ומדגם, ייצוג חזותי, מידע חסר</span></div>
               </div>
 
               <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; font-size: 0.92rem;">
                 <strong style="color: #1e3a8a;">נימוק הבדיקה ומסקנת הכיתה:</strong>
                 <div id="certInsightText" style="margin-top: 4px; color: #1e293b; line-height: 1.5;">
-                  בהודעה אין קישור להודעת דובר משרד החינוך, אין תאריך או חתימה רשמית, וכל עוד אין אימות באתר המשרד - יש לסווג כאין מספיק מידע.
+                  טרם הוזן נימוק הבדיקה
                 </div>
               </div>
 
@@ -2209,11 +2176,11 @@
         D: { selected: 'חשד לתמונה לא מאומתת', count: 26 }
       },
       research: {
-        title: 'הודעת ווטסאפ: שינוי פתאומי במבנה בחינות הבגרות מחר',
-        source: 'וואטסאפ ורשתות חברתיות',
-        link: 'צילום מסך של הודעה מועברת פעמים רבות ללא שם דובר',
-        verdict: 'אין מספיק מידע',
-        rationale: 'בהודעה אין קישור להודעת דובר משרד החינוך, אין חתימה רשמית, וכל עוד אין אימות באתר המשרד - אסור לשתף ויש לסווג כאין מספיק מידע.'
+        title: '',
+        source: '',
+        link: '',
+        verdict: '',
+        rationale: ''
       },
       deliverable: {
         rule: 'לפני שמשתפים, אנחנו עוצרים לחפש מקור ראשוני ולא מפיצים שמועות!',
@@ -2444,6 +2411,13 @@
         return;
       }
 
+      if (stepIndex === 3 && !validateResearchMission()) {
+        if (AppState.currentStep !== 2) {
+          goToStep(2);
+        }
+        return;
+      }
+
       AudioEngine.playClick();
       AppState.currentStep = stepIndex;
 
@@ -2591,31 +2565,43 @@
     }
 
     // Screen 2 & Auto-Sync Functions
-    function setResearchMode(mode) {
-      AudioEngine.playClick();
-      const isCur = (mode === 'curated');
-      document.getElementById('btnModeCurated').classList.toggle('active', isCur);
-      document.getElementById('btnModeLive').classList.toggle('active', !isCur);
-      document.getElementById('curatedSection').style.display = isCur ? 'block' : 'none';
-      if (!isCur) {
-        document.getElementById('researchTitle').focus();
+    function validateResearchMission() {
+      const titleEl = document.getElementById('researchTitle');
+      const sourceEl = document.getElementById('researchSource');
+      const linkEl = document.getElementById('researchLink');
+      const rationaleEl = document.getElementById('researchRationale');
+
+      if (!titleEl.value.trim()) {
+        alert('אנא הזינו את הכותרת או הטענה של הכתבה/הפוסט שמצאתם ברשת (שדה 1).');
+        titleEl.focus();
+        return false;
       }
+      if (!sourceEl.value.trim()) {
+        alert('אנא הזינו מי פרסם את הפריט ומתי (שדה 2).');
+        sourceEl.focus();
+        return false;
+      }
+      if (!linkEl.value.trim()) {
+        alert('אנא הדביקו קישור לפרסום או תארו את המקור שמצאתם ברשת (שדה 3).');
+        linkEl.focus();
+        return false;
+      }
+      if (!AppState.research.verdict) {
+        alert('אנא בחרו את סיווג הכיתה לפריט שמצאתם (אמין ומבוסס / אין מספיק מידע / מטעה / שגוי או הופרך).');
+        return false;
+      }
+      if (!rationaleEl.value.trim()) {
+        alert('אנא כתבו את נימוק הכיתה לבדיקת הפריט שמצאתם ברשת.');
+        rationaleEl.focus();
+        return false;
+      }
+      return true;
     }
 
-    function pickCuratedCase(idx, title, rationale, source, verdict, linkDesc) {
-      AudioEngine.playClick();
-      for (let i = 1; i <= 4; i++) {
-        const c = document.getElementById(`caseCur${i}`);
-        if (c) c.classList.toggle('selected', i === idx);
-      }
-      document.getElementById('researchTitle').value = title;
-      document.getElementById('researchSource').value = source;
-      document.getElementById('researchLink').value = linkDesc || '';
-      document.getElementById('researchRationale').value = rationale;
-      AppState.manualInsightOverride = false;
-      selectResearchVerdict(verdict);
+    function proceedFromResearchToDeliverable() {
+      if (!validateResearchMission()) return;
       syncResearchToDeliverable();
-      showToast(`נטען מקרה חקר #${idx} ועודכן אוטומטית בתוצר הכיתתי`, '📂');
+      goToStep(3);
     }
 
     function selectResearchVerdict(verdict) {
@@ -2729,7 +2715,7 @@
       document.getElementById('certResearchSource').innerText = resSource;
       document.getElementById('certResearchLink').innerText = resLink;
       document.getElementById('certCheckedTools').innerText = checkedTools;
-      document.getElementById('certResearchVerdict').innerText = `סיווג: ${AppState.research.verdict || 'אין מספיק מידע'}`;
+      document.getElementById('certResearchVerdict').innerText = `סיווג: ${AppState.research.verdict || 'טרם נבחר סיווג'}`;
       document.getElementById('certTeacherHeadcount').innerText = `מוביל/ה: ${teacher} | ${headcount} תלמידים`;
 
       const certScreenshotBox = document.getElementById('certScreenshotBox');
